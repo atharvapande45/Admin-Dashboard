@@ -1,38 +1,27 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import ColumnNames from "./ColumnNames";
 import TableRow from "./TableRow";
 import "../Styles/Table.css";
 
-export default function Table() {
-    const [data, setData] = useState([]);
+export default function Table({ data, pageNo }) {
+    const [table, setTable] = useState([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(
-                    "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
-                );
+        changeTable();
+    }, [pageNo, data]);
 
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-
-                const jsonData = await response.json();
-                setData(jsonData);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-
-        fetchData();
-    }, []);
+    const changeTable = () => {
+        let tempArray = data.slice((pageNo - 1) * 10, (pageNo - 1) * 10 + 10);
+        setTable(tempArray);
+        console.log("data", data);
+    };
 
     return (
         <>
             <div className="table">
                 <ColumnNames />
 
-                {data.map((e) => {
+                {table.map((e) => {
                     return (
                         <TableRow
                             key={e.id}

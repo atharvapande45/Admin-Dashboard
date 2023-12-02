@@ -3,6 +3,12 @@
     justify-content: space-between;
 }
 
+.checkbox {
+    margin: auto;
+}
+
 .column-name-item {
     flex-basis: 100%;
+    display: flex;
+    align-items: center;
 }

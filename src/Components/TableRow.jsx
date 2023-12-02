@@ -6,7 +6,7 @@ export default function TableRow({ id, name, email, role }) {
         <>
             <div className="table-row">
                 <div className="row-item">
-                    <input type="checkbox" />
+                    <input type="checkbox" className="checkbox" />
                 </div>
                 <div className="row-item">
                     <p>{name}</p>

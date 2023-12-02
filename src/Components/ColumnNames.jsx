@@ -6,7 +6,7 @@ export default function ColumnNames() {
         <>
             <div className="column-name">
                 <div className="column-name-item">
-                    <input type="checkbox" />
+                    <input type="checkbox" className="checkbox" />
                 </div>
                 <div className="column-name-item">
                     <p>Name</p>
