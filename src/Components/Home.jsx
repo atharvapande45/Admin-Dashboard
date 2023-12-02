@@ -6,6 +6,7 @@ import Footer from "./Footer";
 export default function Home() {
     const [data, setData] = useState([]);
     const [pageNo, setPageNo] = useState(1);
+    const [selected, setSelected] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,11 +32,22 @@ export default function Home() {
     return (
         <>
             <Header />
-            <Table data={data} pageNo={pageNo} setData={setData} />
+            <Table
+                data={data}
+                pageNo={pageNo}
+                setData={setData}
+                setSelected={setSelected}
+            />
             <Footer
                 pageNo={pageNo}
                 setPageNo={setPageNo}
                 pages={Math.ceil(data.length / 10)}
+                selected={selected.length}
+                total={
+                    pageNo * 10 <= data.length
+                        ? 10
+                        : data.length - (pageNo - 1) * 10
+                }
             />
         </>
     );

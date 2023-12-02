@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/Footer.css";
 
-export default function Footer({ pageNo, setPageNo, pages }) {
+export default function Footer({ pageNo, setPageNo, pages, selected, total }) {
     const arrayRange = Array.from(
         { length: (pages - 1) / 1 + 1 },
         (value, index) => 1 + index
@@ -13,7 +13,9 @@ export default function Footer({ pageNo, setPageNo, pages }) {
 
     return (
         <div className="footer">
-            <p className="selected">0/10 selected</p>
+            <p className="selected">
+                {selected}/{total} selected
+            </p>
 
             <div className="page-numbers">
                 <p>
