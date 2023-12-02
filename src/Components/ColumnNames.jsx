@@ -1,12 +1,26 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "../Styles/ColumnNames.css";
 
-export default function ColumnNames() {
+export default function ColumnNames({ setSelectAll, setSelected, table }) {
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleChange = () => {
+        setIsChecked(!isChecked);
+    };
+
+    useEffect(() => {
+        setSelectAll(isChecked);
+    }, [isChecked]);
+
     return (
         <>
             <div className="column-name">
                 <div className="column-name-item">
-                    <input type="checkbox" className="checkbox" />
+                    <input
+                        type="checkbox"
+                        className="checkbox"
+                        onChange={() => handleChange()}
+                    />
                 </div>
                 <div className="column-name-item">
                     <p>Name</p>

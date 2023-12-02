@@ -8,6 +8,8 @@ export default function Home() {
     const [pageNo, setPageNo] = useState(1);
     const [selected, setSelected] = useState([]);
 
+    console.log(selected);
+
     useEffect(() => {
         const fetchData = async () => {
             try {

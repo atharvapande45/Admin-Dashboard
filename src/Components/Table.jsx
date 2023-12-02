@@ -5,6 +5,7 @@ import "../Styles/Table.css";
 
 export default function Table({ data, pageNo, setSelected }) {
     const [table, setTable] = useState([]);
+    const [selectAll, setSelectAll] = useState(false);
 
     useEffect(() => {
         changeTable();
@@ -18,7 +19,11 @@ export default function Table({ data, pageNo, setSelected }) {
     return (
         <>
             <div className="table">
-                <ColumnNames />
+                <ColumnNames
+                    setSelectAll={setSelectAll}
+                    setSelected={setSelected}
+                    table={table}
+                />
 
                 {table.map((e) => {
                     return (
@@ -29,6 +34,7 @@ export default function Table({ data, pageNo, setSelected }) {
                             email={e.email}
                             role={e.role}
                             setSelected={setSelected}
+                            selectAll={selectAll}
                         />
                     );
                 })}

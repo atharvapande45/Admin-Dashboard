@@ -2,8 +2,15 @@ import React from "react";
 import "../Styles/TableRow.css";
 import { useState, useEffect } from "react";
 
-export default function TableRow({ id, name, email, role, setSelected }) {
-    const [isChecked, setChecked] = useState(false);
+export default function TableRow({
+    id,
+    name,
+    email,
+    role,
+    setSelected,
+    selectAll,
+}) {
+    const [isChecked, setChecked] = useState(selectAll);
 
     const handleCheckChange = (id) => {
         setChecked(!isChecked);
@@ -18,6 +25,11 @@ export default function TableRow({ id, name, email, role, setSelected }) {
             }
         });
     }, [isChecked]);
+
+    useEffect(() => {
+        setChecked(selectAll);
+    }, [selectAll]);
+
     return (
         <>
             <div className="table-row">
@@ -25,6 +37,7 @@ export default function TableRow({ id, name, email, role, setSelected }) {
                     <input
                         type="checkbox"
                         className="checkbox"
+                        checked={isChecked}
                         onChange={() => {
                             handleCheckChange(id);
                         }}
