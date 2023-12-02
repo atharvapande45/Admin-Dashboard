@@ -1,7 +1,14 @@
 import React from "react";
 import "../Styles/Footer.css";
 
-export default function Footer({ pageNo, setPageNo, pages, selected, total }) {
+export default function Footer({
+    pageNo,
+    setPageNo,
+    pages,
+    selected,
+    total,
+    deleteSelectedData,
+}) {
     const arrayRange = Array.from(
         { length: (pages - 1) / 1 + 1 },
         (value, index) => 1 + index
@@ -13,9 +20,18 @@ export default function Footer({ pageNo, setPageNo, pages, selected, total }) {
 
     return (
         <div className="footer">
-            <p className="selected">
-                {selected}/{total} selected
-            </p>
+            <div className="selections">
+                <p className="selected">
+                    {selected}/{total} selected
+                </p>
+                <button
+                    onClick={() => {
+                        deleteSelectedData();
+                    }}
+                >
+                    Delete Selections
+                </button>
+            </div>
 
             <div className="page-numbers">
                 <p>

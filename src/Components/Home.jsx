@@ -8,8 +8,6 @@ export default function Home() {
     const [pageNo, setPageNo] = useState(1);
     const [selected, setSelected] = useState([]);
 
-    console.log(selected);
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -31,6 +29,20 @@ export default function Home() {
         fetchData();
     }, []);
 
+    const deleteSelectedData = () => {
+        setData(data.filter((e) => !selected.includes(e.id)));
+
+        setSelected([]);
+    };
+
+    const deleteData = (id) => {
+        setData(
+            data.filter((e) => {
+                return e.id != id;
+            })
+        );
+    };
+
     return (
         <>
             <Header />
@@ -50,6 +62,7 @@ export default function Home() {
                         ? 10
                         : data.length - (pageNo - 1) * 10
                 }
+                deleteSelectedData={deleteSelectedData}
             />
         </>
     );
