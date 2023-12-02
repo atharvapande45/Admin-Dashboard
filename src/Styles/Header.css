@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.input {
+    background: transparent;
+    outline: none;
+    border: none;
+}
+
+.form {
+    padding: 1rem;
+    background-color: rgba(143, 143, 143, 0.456);
+    border-radius: 1rem;
+}
+
+.delete-icon {
+    font-size: 2rem;
+}

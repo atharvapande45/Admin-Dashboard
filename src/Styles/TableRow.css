@@ -1,0 +1,8 @@
+.table-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-item {
+    flex-basis: 100%;
+}
