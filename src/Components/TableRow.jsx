@@ -78,6 +78,7 @@ export default function TableRow({
                             onChange={(e) => {
                                 setInfo({ ...info, name: e.target.value });
                             }}
+                            maxLength={30}
                         />
                     ) : (
                         <p>{name}</p>
@@ -90,6 +91,7 @@ export default function TableRow({
                             onChange={(e) => {
                                 setInfo({ ...info, email: e.target.value });
                             }}
+                            maxLength={30}
                         />
                     ) : (
                         <p>{email}</p>
@@ -102,6 +104,7 @@ export default function TableRow({
                             onChange={(e) => {
                                 setInfo({ ...info, role: e.target.value });
                             }}
+                            maxLength={30}
                         />
                     ) : (
                         <p>{role}</p>

@@ -41,21 +41,54 @@ export default function Footer({
                 <p>
                     Page {pageNo}/{pages}
                 </p>
-                <button className="button">{"<<"}</button>
-                <button className="button">{"<"}</button>
+                <button
+                    className="button"
+                    onClick={() => {
+                        setPageNo(1);
+                    }}
+                    disabled={pageNo == 1}
+                >
+                    {"<<"}
+                </button>
+                <button
+                    className="button"
+                    onClick={() => {
+                        setPageNo(pageNo - 1);
+                    }}
+                    disabled={pageNo == 1}
+                >
+                    {"<"}
+                </button>
                 {arrayRange.map((e) => (
                     <button
                         key={e}
-                        className="button"
+                        className="button-no"
                         onClick={() => {
                             changePage(e);
                         }}
+                        disabled={e == pageNo}
                     >
                         {e}
                     </button>
                 ))}
-                <button className="button">{"<<"}</button>
-                <button className="button">{"<"}</button>
+                <button
+                    className="button"
+                    onClick={() => {
+                        setPageNo(pageNo + 1);
+                    }}
+                    disabled={pageNo == pages}
+                >
+                    {">"}
+                </button>
+                <button
+                    className="button"
+                    onClick={() => {
+                        setPageNo(pages);
+                    }}
+                    disabled={pageNo == pages}
+                >
+                    {">>"}
+                </button>
             </div>
         </div>
     );

@@ -21,6 +21,11 @@
     justify-content: end;
 }
 
+.button-no {
+    margin: 1%;
+    background-color: white;
+}
+
 .button {
     margin: 1%;
 }

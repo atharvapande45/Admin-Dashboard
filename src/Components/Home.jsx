@@ -88,6 +88,7 @@ export default function Home() {
             <Header
                 setSearchString={setSearchString}
                 filterOnSearch={filterOnSearch}
+                deleteSelectedData={deleteSelectedData}
             />
             <Table
                 data={data}

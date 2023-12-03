@@ -1,6 +1,8 @@
 .column-name {
     display: flex;
     justify-content: space-between;
+    border-bottom: dashed black 1px;
+    color: gray;
 }
 
 .checkbox {
@@ -11,4 +13,5 @@
     flex-basis: 100%;
     display: flex;
     align-items: center;
+    font-weight: bold;
 }

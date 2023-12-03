@@ -2,7 +2,11 @@ import { FaSearch } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import "../Styles/Header.css";
 
-export default function Header({ setSearchString, filterOnSearch }) {
+export default function Header({
+    setSearchString,
+    filterOnSearch,
+    deleteSelectedData,
+}) {
     const handleChange = (e) => {
         setSearchString(e.target.value);
     };
@@ -35,7 +39,10 @@ export default function Header({ setSearchString, filterOnSearch }) {
                     />
                 </div>
 
-                <AiFillDelete className="delete-icon" />
+                <AiFillDelete
+                    className="delete-icon"
+                    onClick={deleteSelectedData}
+                />
             </div>
         </>
     );
