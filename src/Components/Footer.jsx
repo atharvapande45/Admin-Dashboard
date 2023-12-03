@@ -8,6 +8,8 @@ export default function Footer({
     selected,
     total,
     deleteSelectedData,
+    setSelected,
+    setSelectAll,
 }) {
     const arrayRange = Array.from(
         { length: (pages - 1) / 1 + 1 },
@@ -16,6 +18,8 @@ export default function Footer({
 
     const changePage = (e) => {
         setPageNo(e);
+        setSelected([]);
+        setSelectAll(false);
     };
 
     return (

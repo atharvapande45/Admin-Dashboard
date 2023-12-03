@@ -1,6 +1,7 @@
 import React from "react";
 import "../Styles/TableRow.css";
 import { useState, useEffect } from "react";
+import { AiTwotoneEdit, AiTwotoneDelete } from "react-icons/ai";
 
 export default function TableRow({
     id,
@@ -9,6 +10,7 @@ export default function TableRow({
     role,
     setSelected,
     selectAll,
+    deleteData,
 }) {
     const [isChecked, setChecked] = useState(selectAll);
 
@@ -53,7 +55,11 @@ export default function TableRow({
                     <p>{role}</p>
                 </div>
                 <div className="row-item">
-                    <p>actions</p>
+                    <AiTwotoneEdit className="icon-edit" />
+                    <AiTwotoneDelete
+                        className="icon-delete"
+                        onClick={() => deleteData(id)}
+                    />
                 </div>
             </div>
         </>

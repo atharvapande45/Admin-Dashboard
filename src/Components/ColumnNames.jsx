@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../Styles/ColumnNames.css";
 
-export default function ColumnNames({ setSelectAll, setSelected, table }) {
+export default function ColumnNames({ setSelectAll, selectAll }) {
     const [isChecked, setIsChecked] = useState(false);
 
     const handleChange = () => {
@@ -12,6 +12,10 @@ export default function ColumnNames({ setSelectAll, setSelected, table }) {
         setSelectAll(isChecked);
     }, [isChecked]);
 
+    useEffect(() => {
+        setIsChecked(selectAll);
+    }, [selectAll]);
+
     return (
         <>
             <div className="column-name">
@@ -19,6 +23,7 @@ export default function ColumnNames({ setSelectAll, setSelected, table }) {
                     <input
                         type="checkbox"
                         className="checkbox"
+                        checked={isChecked}
                         onChange={() => handleChange()}
                     />
                 </div>
@@ -29,10 +34,10 @@ export default function ColumnNames({ setSelectAll, setSelected, table }) {
                     <p>Email</p>
                 </div>
                 <div className="column-name-item">
-                    <p>role</p>
+                    <p>Role</p>
                 </div>
                 <div className="column-name-item">
-                    <p>actions</p>
+                    <p>Actions</p>
                 </div>
             </div>
         </>

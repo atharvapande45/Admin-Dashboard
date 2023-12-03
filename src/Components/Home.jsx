@@ -7,6 +7,9 @@ export default function Home() {
     const [data, setData] = useState([]);
     const [pageNo, setPageNo] = useState(1);
     const [selected, setSelected] = useState([]);
+    const [selectAll, setSelectAll] = useState(false);
+    const [searchString, setSearchString] = useState("");
+    const [data1, setData1] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,10 +32,37 @@ export default function Home() {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        setData1(data);
+        filterOnSearch();
+    }, [data]);
+
+    const filterOnSearch = () => {
+        setData1(
+            data.filter((e) => {
+                if (searchString == "") return true;
+                else if (
+                    e.name.toLowerCase().includes(searchString.toLowerCase())
+                )
+                    return true;
+                else if (
+                    e.email.toLowerCase().includes(searchString.toLowerCase())
+                )
+                    return true;
+                else if (
+                    e.role.toLowerCase().includes(searchString.toLowerCase())
+                )
+                    return true;
+
+                return false;
+            })
+        );
+    };
+
     const deleteSelectedData = () => {
         setData(data.filter((e) => !selected.includes(e.id)));
-
         setSelected([]);
+        setSelectAll(false);
     };
 
     const deleteData = (id) => {
@@ -45,24 +75,32 @@ export default function Home() {
 
     return (
         <>
-            <Header />
+            <Header
+                setSearchString={setSearchString}
+                filterOnSearch={filterOnSearch}
+            />
             <Table
-                data={data}
+                data={data1}
                 pageNo={pageNo}
                 setData={setData}
                 setSelected={setSelected}
+                selectAll={selectAll}
+                setSelectAll={setSelectAll}
+                deleteData={deleteData}
             />
             <Footer
                 pageNo={pageNo}
                 setPageNo={setPageNo}
-                pages={Math.ceil(data.length / 10)}
+                pages={Math.ceil(data1.length / 10)}
                 selected={selected.length}
                 total={
-                    pageNo * 10 <= data.length
+                    pageNo * 10 <= data1.length
                         ? 10
-                        : data.length - (pageNo - 1) * 10
+                        : data1.length - (pageNo - 1) * 10
                 }
                 deleteSelectedData={deleteSelectedData}
+                setSelected={setSelected}
+                setSelectAll={setSelectAll}
             />
         </>
     );

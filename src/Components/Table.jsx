@@ -3,9 +3,15 @@ import ColumnNames from "./ColumnNames";
 import TableRow from "./TableRow";
 import "../Styles/Table.css";
 
-export default function Table({ data, pageNo, setSelected }) {
+export default function Table({
+    data,
+    pageNo,
+    setSelected,
+    selectAll,
+    setSelectAll,
+    deleteData,
+}) {
     const [table, setTable] = useState([]);
-    const [selectAll, setSelectAll] = useState(false);
 
     useEffect(() => {
         changeTable();
@@ -21,8 +27,7 @@ export default function Table({ data, pageNo, setSelected }) {
             <div className="table">
                 <ColumnNames
                     setSelectAll={setSelectAll}
-                    setSelected={setSelected}
-                    table={table}
+                    selectAll={selectAll}
                 />
 
                 {table.map((e) => {
@@ -35,6 +40,7 @@ export default function Table({ data, pageNo, setSelected }) {
                             role={e.role}
                             setSelected={setSelected}
                             selectAll={selectAll}
+                            deleteData={deleteData}
                         />
                     );
                 })}
