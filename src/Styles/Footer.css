@@ -22,10 +22,9 @@
 }
 
 .button-no {
-    margin: 1%;
     background-color: white;
 }
 
-.button {
-    margin: 1%;
+button {
+    margin: 0.5%;
 }

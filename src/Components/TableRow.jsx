@@ -7,6 +7,8 @@ import {
     AiOutlineCheckSquare,
     AiOutlineCloseCircle,
 } from "react-icons/ai";
+import "react-tippy/dist/tippy.css";
+import { Tooltip } from "react-tippy";
 
 export default function TableRow({
     id,
@@ -60,7 +62,7 @@ export default function TableRow({
 
     return (
         <>
-            <div className="table-row">
+            <div className={`table-row ${isChecked && "gray-row"}`}>
                 <div className="row-item">
                     <input
                         type="checkbox"
@@ -112,32 +114,56 @@ export default function TableRow({
                 </div>
                 <div className="row-item">
                     {edit ? (
-                        <AiOutlineCheckSquare
-                            className="icon-check"
-                            onClick={() => {
-                                handleEdit();
-                            }}
-                        />
+                        <Tooltip
+                            title="Submit"
+                            position="bottom"
+                            trigger="mouseenter"
+                        >
+                            <AiOutlineCheckSquare
+                                className="icon-check"
+                                onClick={() => {
+                                    handleEdit();
+                                }}
+                            />
+                        </Tooltip>
                     ) : (
-                        <AiTwotoneEdit
-                            className="icon-edit"
-                            onClick={() => {
-                                handleClick();
-                            }}
-                        />
+                        <Tooltip
+                            title="Edit"
+                            position="bottom"
+                            trigger="mouseenter"
+                        >
+                            <AiTwotoneEdit
+                                className="icon-edit"
+                                onClick={() => {
+                                    handleClick();
+                                }}
+                            />
+                        </Tooltip>
                     )}
                     {edit ? (
-                        <AiOutlineCloseCircle
-                            className="icon-close"
-                            onClick={() => {
-                                handleClose();
-                            }}
-                        />
+                        <Tooltip
+                            title="Close"
+                            position="bottom"
+                            trigger="mouseenter"
+                        >
+                            <AiOutlineCloseCircle
+                                className="icon-close"
+                                onClick={() => {
+                                    handleClose();
+                                }}
+                            />
+                        </Tooltip>
                     ) : (
-                        <AiTwotoneDelete
-                            className="icon-delete"
-                            onClick={() => deleteData(id)}
-                        />
+                        <Tooltip
+                            title="Delete"
+                            position="bottom"
+                            trigger="mouseenter"
+                        >
+                            <AiTwotoneDelete
+                                className="icon-delete"
+                                onClick={() => deleteData(id)}
+                            />
+                        </Tooltip>
                     )}
                 </div>
             </div>

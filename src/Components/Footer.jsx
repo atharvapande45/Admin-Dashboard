@@ -28,13 +28,6 @@ export default function Footer({
                 <p className="selected">
                     {selected}/{total} selected
                 </p>
-                <button
-                    onClick={() => {
-                        deleteSelectedData();
-                    }}
-                >
-                    Delete Selections
-                </button>
             </div>
 
             <div className="page-numbers">
@@ -42,7 +35,7 @@ export default function Footer({
                     Page {pageNo}/{pages}
                 </p>
                 <button
-                    className="button"
+                    className="first-page"
                     onClick={() => {
                         setPageNo(1);
                     }}
@@ -51,7 +44,7 @@ export default function Footer({
                     {"<<"}
                 </button>
                 <button
-                    className="button"
+                    className="previous-page"
                     onClick={() => {
                         setPageNo(pageNo - 1);
                     }}
@@ -72,7 +65,7 @@ export default function Footer({
                     </button>
                 ))}
                 <button
-                    className="button"
+                    className="next-page"
                     onClick={() => {
                         setPageNo(pageNo + 1);
                     }}
@@ -81,7 +74,7 @@ export default function Footer({
                     {">"}
                 </button>
                 <button
-                    className="button"
+                    className="last-page"
                     onClick={() => {
                         setPageNo(pages);
                     }}

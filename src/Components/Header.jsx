@@ -1,6 +1,8 @@
 import { FaSearch } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import "../Styles/Header.css";
+import "react-tippy/dist/tippy.css";
+import { Tooltip } from "react-tippy";
 
 export default function Header({
     setSearchString,
@@ -33,16 +35,22 @@ export default function Header({
                         onKeyDown={(e) => handleEnter(e)}
                     />
                     <FaSearch
+                        className="search-icon"
                         onClick={() => {
                             handleClick();
                         }}
                     />
                 </div>
-
-                <AiFillDelete
-                    className="delete-icon"
-                    onClick={deleteSelectedData}
-                />
+                <Tooltip
+                    title="Delete selections"
+                    position="bottom"
+                    trigger="mouseenter"
+                >
+                    <AiFillDelete
+                        className="delete-icon"
+                        onClick={deleteSelectedData}
+                    />
+                </Tooltip>
             </div>
         </>
     );
