@@ -21,6 +21,15 @@
     align-items: center;
 }
 
+.search-icon {
+    transition: 0.25s;
+}
+
+.search-icon:hover {
+    transform: scale(1.25);
+    cursor: pointer;
+}
+
 .delete-icon {
     font-size: 2rem;
     color: red;

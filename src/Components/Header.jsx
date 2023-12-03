@@ -34,12 +34,18 @@ export default function Header({
                         onChange={(e) => handleChange(e)}
                         onKeyDown={(e) => handleEnter(e)}
                     />
-                    <FaSearch
-                        className="search-icon"
-                        onClick={() => {
-                            handleClick();
-                        }}
-                    />
+                    <Tooltip
+                        title="Search"
+                        position="bottom"
+                        trigger="mouseenter"
+                    >
+                        <FaSearch
+                            className="search-icon"
+                            onClick={() => {
+                                handleClick();
+                            }}
+                        />
+                    </Tooltip>
                 </div>
                 <Tooltip
                     title="Delete selections"
