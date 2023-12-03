@@ -41,6 +41,8 @@ export default function Footer({
                 <p>
                     Page {pageNo}/{pages}
                 </p>
+                <button className="button">{"<<"}</button>
+                <button className="button">{"<"}</button>
                 {arrayRange.map((e) => (
                     <button
                         key={e}
@@ -52,6 +54,8 @@ export default function Footer({
                         {e}
                     </button>
                 ))}
+                <button className="button">{"<<"}</button>
+                <button className="button">{"<"}</button>
             </div>
         </div>
     );

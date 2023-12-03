@@ -11,11 +11,14 @@
 }
 
 .form {
-    padding: 1rem;
+    padding: 0.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background-color: rgba(143, 143, 143, 0.456);
     border-radius: 1rem;
 }
 
 .delete-icon {
     font-size: 2rem;
+    color: red;
 }

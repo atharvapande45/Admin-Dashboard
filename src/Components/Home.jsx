@@ -73,6 +73,16 @@ export default function Home() {
         );
     };
 
+    const editData = (id, newName, newEmail, newRole) => {
+        setData((prevData) =>
+            prevData.map((item) =>
+                item.id === id
+                    ? { name: newName, email: newEmail, role: newRole }
+                    : item
+            )
+        );
+    };
+
     return (
         <>
             <Header
@@ -80,13 +90,14 @@ export default function Home() {
                 filterOnSearch={filterOnSearch}
             />
             <Table
-                data={data1}
+                data={data}
+                data1={data1}
                 pageNo={pageNo}
-                setData={setData}
                 setSelected={setSelected}
                 selectAll={selectAll}
                 setSelectAll={setSelectAll}
                 deleteData={deleteData}
+                editData={editData}
             />
             <Footer
                 pageNo={pageNo}

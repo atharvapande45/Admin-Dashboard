@@ -7,27 +7,53 @@
     margin: auto;
 }
 
+.checkbox:hover {
+    cursor: pointer;
+}
+
 .row-item {
     flex-basis: 100%;
     display: flex;
     align-items: center;
 }
 
+input {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .icon-edit {
-    padding-right: 1rem;
+    padding-right: 2rem;
     font-size: 1.5rem;
     transition: 0.25s;
 }
 
+.icon-check {
+    padding-right: 2rem;
+    font-size: 1.5rem;
+    transition: 0.25s;
+    color: green;
+}
+
 .icon-delete {
-    padding-right: 1rem;
+    padding-right: 2rem;
+    font-size: 1.5rem;
+    transition: 0.25s;
+    color: red;
+}
+
+.icon-close {
+    padding-right: 2rem;
     font-size: 1.5rem;
     transition: 0.25s;
     color: red;
 }
 
 .icon-edit:hover,
-.icon-delete:hover {
+.icon-delete:hover,
+.icon-check:hover,
+.icon-close:hover {
     font-size: 2rem;
-    padding-right: 0.5rem;
+    padding-right: 1.5rem;
+    cursor: pointer;
 }
