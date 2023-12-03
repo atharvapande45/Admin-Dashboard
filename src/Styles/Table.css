@@ -1,5 +1,7 @@
 .table {
-    padding: 2rem;
+    padding: 0.5rem;
+    padding-bottom: 0;
     border: solid 0.2rem black;
     border-radius: 1rem;
+    min-height: 75vh;
 }

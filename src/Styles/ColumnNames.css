@@ -1,7 +1,7 @@
 .column-name {
     display: flex;
     justify-content: space-between;
-    border-bottom: dashed black 1px;
+    border-bottom: solid black 2px;
     color: gray;
 }
 

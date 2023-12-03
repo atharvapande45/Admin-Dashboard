@@ -99,6 +99,7 @@ export default function Home() {
                 setSelectAll={setSelectAll}
                 deleteData={deleteData}
                 editData={editData}
+                setPageNo={setPageNo}
             />
             <Footer
                 pageNo={pageNo}

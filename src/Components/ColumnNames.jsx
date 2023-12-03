@@ -28,16 +28,16 @@ export default function ColumnNames({ setSelectAll, selectAll }) {
                     />
                 </div>
                 <div className="column-name-item">
-                    <p>Name</p>
+                    <p>NAME</p>
                 </div>
                 <div className="column-name-item">
-                    <p>Email</p>
+                    <p>E-MAIL</p>
                 </div>
                 <div className="column-name-item">
-                    <p>Role</p>
+                    <p>ROLE</p>
                 </div>
                 <div className="column-name-item">
-                    <p>Actions</p>
+                    <p>ACTIONS</p>
                 </div>
             </div>
         </>

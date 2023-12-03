@@ -1,6 +1,7 @@
 .table-row {
     display: flex;
     justify-content: space-between;
+    border-bottom: dashed black 1px;
 }
 
 .gray-row {
